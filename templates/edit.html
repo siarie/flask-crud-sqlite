@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Buku</title>
+</head>
+<body>
+    <h2>Edit Buku</h2>
+
+    <form action="{{ url_for('edit', ID=data[0]) }}" method="post">
+        ID: <br />
+        <input type="text" name="id" value="{{ data[0] }}" disabled><br />
+        Title: <br />
+        <input type="text" name="title" value="{{ data[1] }}"><br />
+        Author: <br />
+        <input type="text" name="author" value="{{ data[2] }}"><br />
+        Publisher: <br />
+        <input type="text" name="publisher" value="{{ data[3] }}"><br />
+        <p><input type="submit" value="Ubah"></p>
+    </form>
+</body>
+</html>

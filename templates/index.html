@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Buku</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        width: 100%;
+        height: 100vh;
+        padding: 0;
+        margin: 0;
+        border: solid 10px salmon;
+        background: skyblue;
+      }
+      th,
+      td {
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Data Buku Perpustakaan</h2>
+    <a href="{{ url_for('tambah') }}">Tambah Data</a>
+    <br /><br />
+    <table border="1" width="100%" style="border-collapse: collapse;">
+      <tr>
+        <th width="2%">ID</th>
+        <th>Judul</th>
+        <th>Penulis</th>
+        <th>Penerbit</th>
+        <th colspan="2" width="5%">...</th>
+      </tr>
+      {% for baris in data %}
+      <tr>
+        <td>{{ baris[0] }}</td>
+        <td>{{ baris[1] }}</td>
+        <td>{{ baris[2] }}</td>
+        <td>{{ baris[3] }}</td>
+        <td align="center">
+          <a href="{{ url_for('edit', ID=baris[0]) }}">Edit</a>
+        </td>
+        <td align="center">
+          <a href="{{ url_for('hapus', ID=baris[0]) }}">Hapus</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>
